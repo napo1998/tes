@@ -1,0 +1,7 @@
+typing-inspect
+typing_extensions
+streamlit
+openai
+langchain
+pandas
+tabulate
