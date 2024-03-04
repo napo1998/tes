@@ -2,27 +2,27 @@ import streamlit as st
 import pandas as pd
 from langchain.chat_models import ChatOpenAI
 from langchain.agents.agent_types import AgentType
-from langchain_experimental.agents.create_pandas_dataframe_agent
+from langchain_experimental.agents import create_pandas_dataframe_agent
 # Page title
 st.set_page_config(page_title=' Ask the Data App')
 st.title('🦜🔗 Ask the Data App')
 
 # Load CSV file
 def load_csv(input_csv):
-  df = pd.read_csv(input_csv)
-  with st.expander('See DataFrame'):
-    st.write(df)
-  return df
+    df = pd.read_csv(input_csv)
+    with st.expander('See DataFrame'):
+        st.write(df)
+    return df
 
 # Generate LLM response
 def generate_response(csv_file, input_query):
-  llm = ChatOpenAI(model_name='gpt-3.5-turbo-0613', temperature=0.2, openai_api_key=openai_api_key)
-  df = load_csv(csv_file)
-  # Create Pandas DataFrame Agent
-  agent = create_pandas_dataframe_agent(llm, df, verbose=True, agent_type=AgentType.OPENAI_FUNCTIONS)
-  # Perform Query using the Agent
-  response = agent.run(input_query)
-  return st.success(response)
+    llm = ChatOpenAI(model_name='gpt-3.5-turbo-0613', temperature=0.2, openai_api_key=openai_api_key)
+    df = load_csv(csv_file)
+    # Create Pandas DataFrame Agent
+    agent = create_pandas_dataframe_agent(llm, df, verbose=True, agent_type=AgentType.OPENAI_FUNCTIONS)
+    # Perform Query using the Agent
+    response = agent.run(input_query)
+    return st.success(response)
 
 # Input widgets
 uploaded_file = st.file_uploader('Upload a CSV file', type=['csv'])
