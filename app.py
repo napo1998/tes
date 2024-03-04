@@ -5,19 +5,13 @@ from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain.document_loaders.csv_loader import CSVLoader
 from langchain.vectorstores import FAISS
-
-
-
-
 import tempfile
 import os
 from PIL import Image
 
 
-# Loading Image using PIL
-im = Image.open('./image/chatbot.png')
 # Adding Image to web app
-st.set_page_config(page_title="TRIPAI", page_icon = im)
+st.set_page_config(page_title="TRIPAI")
 # bg = Image.open('./image/background.png')
 # st.image(bg, caption='None',use_column_width=True)
 os.environ['OPENAI_API_KEY'] = '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'

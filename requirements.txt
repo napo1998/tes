@@ -4,5 +4,5 @@ pandasai==0.2.15
 pdfplumber==0.9.0
 pypdf==3.9.0
 streamlit==1.22.0
-streamlit-chat==0.0.2.2
+streamlit-chat==0.1.1
 tiktoken==0.4.0faiss-cpu
